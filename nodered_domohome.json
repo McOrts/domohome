@@ -1,0 +1,782 @@
+[
+    {
+        "id": "7c48016e.59b048",
+        "type": "tab",
+        "label": "Storageroom",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "874ad7a5.7de258",
+        "type": "tab",
+        "label": "Irrigation",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4f82edb9.27acdc",
+        "type": "tab",
+        "label": "Meteo",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4ed089b8.6b58f8",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": ""
+    },
+    {
+        "id": "de4d6ea0.d5f218",
+        "type": "twitter-credentials",
+        "z": "",
+        "screen_name": "@McODomoHome"
+    },
+    {
+        "id": "c325bb79.9bace8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    },
+    {
+        "id": "13c1bcc7.8d13d3",
+        "type": "ui_group",
+        "z": "",
+        "name": "Storageroom",
+        "tab": "c325bb79.9bace8",
+        "disp": true,
+        "width": "9",
+        "collapse": true
+    },
+    {
+        "id": "e7cd547f.53efc",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "DomoHome Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "true",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 40,
+                "sy": 40,
+                "gx": 0,
+                "gy": 0,
+                "cx": 0,
+                "cy": 0,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "40d01e24.e71908",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Meteo",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "6d96325c.ec342c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Solar",
+        "tab": "40d01e24.e71908",
+        "order": 1,
+        "disp": true,
+        "width": "9",
+        "collapse": true
+    },
+    {
+        "id": "7df9a296.a5c62c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Irrigation",
+        "tab": "c325bb79.9bace8",
+        "order": 2,
+        "disp": true,
+        "width": "9",
+        "collapse": false
+    },
+    {
+        "id": "938df970.f86868",
+        "type": "ui_link",
+        "z": "",
+        "name": "All info",
+        "link": "http://192.168.1.120:5000/mcortshome/ws_domohome",
+        "icon": "open_in_browser",
+        "target": "iframe",
+        "order": 3
+    },
+    {
+        "id": "4cc0ef4d.1f19e8",
+        "type": "ui_group",
+        "z": "",
+        "name": "CPU Load",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "29a2495a.25a726",
+        "type": "ui_group",
+        "z": "",
+        "name": "Memory",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "89531dc9.325f58",
+        "type": "ui_group",
+        "z": "",
+        "name": "System Information",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "96a026ad.181ed8",
+        "type": "ui_group",
+        "z": "",
+        "name": "CPU Load",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "63968fb6.57d9a8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Memory",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "feb265fa.c5bcd8",
+        "type": "ui_group",
+        "z": "",
+        "name": "System Information",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "8192fdef.f6ef1",
+        "type": "ui_group",
+        "z": "",
+        "name": "bob",
+        "tab": "5edd84cc.40bd64",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "5edd84cc.40bd64",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "home",
+        "order": "1"
+    },
+    {
+        "id": "889e8206.c5e1e",
+        "type": "mqtt in",
+        "z": "7c48016e.59b048",
+        "name": "humidity",
+        "topic": "/home/storageroom/humidity",
+        "qos": "0",
+        "broker": "4ed089b8.6b58f8",
+        "x": 91,
+        "y": 66,
+        "wires": [
+            [
+                "6aa3d3a7.bd72e4",
+                "62df6a56.1fd69c",
+                "ae64c706.b7eb9",
+                "4f21b3f1.78c114"
+            ]
+        ]
+    },
+    {
+        "id": "6aa3d3a7.bd72e4",
+        "type": "twitter out",
+        "z": "7c48016e.59b048",
+        "twitter": "de4d6ea0.d5f218",
+        "name": "Tweet",
+        "x": 563.5,
+        "y": 32,
+        "wires": []
+    },
+    {
+        "id": "62df6a56.1fd69c",
+        "type": "debug",
+        "z": "7c48016e.59b048",
+        "name": "msg",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 744.0000228881836,
+        "y": 192.000018119812,
+        "wires": []
+    },
+    {
+        "id": "cc1664b6.f4a668",
+        "type": "mqtt in",
+        "z": "7c48016e.59b048",
+        "name": "solar",
+        "topic": "/home/meteo/solar",
+        "qos": "0",
+        "broker": "4ed089b8.6b58f8",
+        "x": 80,
+        "y": 193,
+        "wires": [
+            [
+                "6aa3d3a7.bd72e4",
+                "62e24775.c47f6"
+            ]
+        ]
+    },
+    {
+        "id": "c3bd7b4e.ee9e4",
+        "type": "rpi-gpio out",
+        "z": "7c48016e.59b048",
+        "name": "dehumidifier",
+        "pin": "31",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 767,
+        "y": 387,
+        "wires": []
+    },
+    {
+        "id": "62e24775.c47f6",
+        "type": "change",
+        "z": "7c48016e.59b048",
+        "name": "1/0 transformation",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "Sunset",
+                "fromt": "str",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "Sunrise",
+                "fromt": "str",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 401,
+        "y": 193,
+        "wires": [
+            [
+                "62df6a56.1fd69c",
+                "b7f05996.a63d2"
+            ]
+        ]
+    },
+    {
+        "id": "ae64c706.b7eb9",
+        "type": "ui_gauge",
+        "z": "7c48016e.59b048",
+        "name": "Humidity",
+        "group": "13c1bcc7.8d13d3",
+        "order": 3,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "",
+        "label": "% Humidity",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00B500",
+            "#E6E600",
+            "#CA3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 750.5000228881836,
+        "y": 66.00000190734863,
+        "wires": []
+    },
+    {
+        "id": "d7962b8e.ac5a08",
+        "type": "mqtt in",
+        "z": "7c48016e.59b048",
+        "name": "temperature",
+        "topic": "/home/storageroom/temperature",
+        "qos": "2",
+        "broker": "4ed089b8.6b58f8",
+        "x": 100.5,
+        "y": 130,
+        "wires": [
+            [
+                "62df6a56.1fd69c",
+                "4f21b3f1.78c114",
+                "9f53cf4f.6e2008",
+                "6aa3d3a7.bd72e4"
+            ]
+        ]
+    },
+    {
+        "id": "cb9e17c5.51a908",
+        "type": "ui_switch",
+        "z": "7c48016e.59b048",
+        "name": "",
+        "label": "Start deshumidifier",
+        "group": "13c1bcc7.8d13d3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 376.5,
+        "y": 383,
+        "wires": [
+            [
+                "c3bd7b4e.ee9e4"
+            ]
+        ]
+    },
+    {
+        "id": "9f53cf4f.6e2008",
+        "type": "ui_gauge",
+        "z": "7c48016e.59b048",
+        "name": "Temperature",
+        "group": "13c1bcc7.8d13d3",
+        "order": 4,
+        "width": "4",
+        "height": "3",
+        "gtype": "gage",
+        "title": "",
+        "label": "*C",
+        "format": "{{value}}",
+        "min": "-5",
+        "max": "60",
+        "colors": [
+            "#00B500",
+            "#E6E600",
+            "#CA3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 760.5000228881836,
+        "y": 108.00000953674316,
+        "wires": []
+    },
+    {
+        "id": "4f21b3f1.78c114",
+        "type": "ui_chart",
+        "z": "7c48016e.59b048",
+        "name": "",
+        "group": "13c1bcc7.8d13d3",
+        "order": 6,
+        "width": "0",
+        "height": "0",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "-5",
+        "ymax": "100",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1F77B4",
+            "#D62728",
+            "#FF7F0E",
+            "#2CA02C",
+            "#98DF8A",
+            "#D62728",
+            "#FF9896",
+            "#9467BD",
+            "#C5B0D5"
+        ],
+        "useOldStyle": false,
+        "x": 743.5000228881836,
+        "y": 150.00001907348633,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d5c6fb38.cc619",
+        "type": "ui_switch",
+        "z": "7c48016e.59b048",
+        "name": "",
+        "label": "Lights",
+        "group": "13c1bcc7.8d13d3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 337,
+        "y": 512,
+        "wires": [
+            [
+                "a1525a93.a18598"
+            ]
+        ]
+    },
+    {
+        "id": "a1525a93.a18598",
+        "type": "rpi-gpio out",
+        "z": "7c48016e.59b048",
+        "name": "Storageroom lights",
+        "pin": "35",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 788,
+        "y": 515,
+        "wires": []
+    },
+    {
+        "id": "f1451a0c.615f78",
+        "type": "delay",
+        "z": "7c48016e.59b048",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "hours",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 578.5,
+        "y": 274,
+        "wires": [
+            [
+                "c3bd7b4e.ee9e4"
+            ]
+        ]
+    },
+    {
+        "id": "b7f05996.a63d2",
+        "type": "switch",
+        "z": "7c48016e.59b048",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 369.5,
+        "y": 307,
+        "wires": [
+            [
+                "f1451a0c.615f78"
+            ],
+            [
+                "c3bd7b4e.ee9e4"
+            ]
+        ]
+    },
+    {
+        "id": "656043b3.1291dc",
+        "type": "ui_switch",
+        "z": "874ad7a5.7de258",
+        "name": "",
+        "label": "Start irrigation",
+        "group": "7df9a296.a5c62c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 136.5,
+        "y": 85,
+        "wires": [
+            [
+                "eed91de4.aab838"
+            ]
+        ]
+    },
+    {
+        "id": "eed91de4.aab838",
+        "type": "mqtt out",
+        "z": "874ad7a5.7de258",
+        "name": "",
+        "topic": "/home/irrigation",
+        "qos": "0",
+        "retain": "",
+        "broker": "4ed089b8.6b58f8",
+        "x": 478.5,
+        "y": 86,
+        "wires": []
+    },
+    {
+        "id": "60213870.21f81",
+        "type": "mqtt in",
+        "z": "4f82edb9.27acdc",
+        "name": "/home/meteo/solar",
+        "topic": "/home/meteo/solar",
+        "qos": "0",
+        "broker": "4ed089b8.6b58f8",
+        "x": 111,
+        "y": 65,
+        "wires": [
+            [
+                "1f405919.b8c4ff",
+                "58ef2c8f.f4098c"
+            ]
+        ]
+    },
+    {
+        "id": "58ef2c8f.f4098c",
+        "type": "function",
+        "z": "4f82edb9.27acdc",
+        "name": "add time to payload",
+        "func": "\nvar ts_hms = new Date();\nmsg.payload = msg.payload + \" at \" + ts_hms;\nreturn [msg];",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 399,
+        "y": 68,
+        "wires": [
+            [
+                "734e53a5.05c9a4",
+                "90be24bf.dd17b8",
+                "30520d15.88ad4a"
+            ]
+        ]
+    },
+    {
+        "id": "734e53a5.05c9a4",
+        "type": "ui_text",
+        "z": "4f82edb9.27acdc",
+        "group": "6d96325c.ec342c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Solar",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 653,
+        "y": 54,
+        "wires": []
+    },
+    {
+        "id": "90be24bf.dd17b8",
+        "type": "ui_toast",
+        "z": "4f82edb9.27acdc",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "Solar",
+        "x": 654,
+        "y": 106,
+        "wires": []
+    },
+    {
+        "id": "1f405919.b8c4ff",
+        "type": "debug",
+        "z": "4f82edb9.27acdc",
+        "name": "msg",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 393,
+        "y": 248,
+        "wires": []
+    },
+    {
+        "id": "30520d15.88ad4a",
+        "type": "ui_audio",
+        "z": "4f82edb9.27acdc",
+        "name": "",
+        "group": "6d96325c.ec342c",
+        "voice": "en-US",
+        "always": true,
+        "x": 665,
+        "y": 163,
+        "wires": []
+    },
+    {
+        "id": "b75d0c3f.8a37f8",
+        "type": "inject",
+        "z": "7c48016e.59b048",
+        "name": "",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 101.5,
+        "y": 383,
+        "wires": [
+            [
+                "cb9e17c5.51a908",
+                "d5c6fb38.cc619"
+            ]
+        ]
+    }
+]

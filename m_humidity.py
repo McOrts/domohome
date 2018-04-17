@@ -122,7 +122,7 @@ def send_data_IOT_cloud(p_humidity, p_temperature):
     api_response = api_instance.send_message(data)
     #pprint(api_response)
 
-  except ApiException, e:
+  except Exception as e:
     pprint("Exception when calling MessagesApi->send_message: %s\n" % e)
     logger.error("Exception when calling MessagesApi->send_message: %s\n" % e)
 
