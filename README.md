@@ -21,5 +21,5 @@ Buena libreria :paho-mqtt 1.3.1
 https://pypi.python.org/pypi/paho-mqtt
 Eclipse Paho MQTT Python client library, which implements versions 3.1 and 3.1.1 of the MQTT protocol.
 
-Agradecimientos:
+## Agradecimientos
 R. A. Light, "Mosquitto: server and client implementation of the MQTT protocol," The Journal of Open Source Software, vol. 2, no. 13, May 2017, DOI: [10.21105/joss.00265](http://dx.doi.org/10.21105/joss.00265)
