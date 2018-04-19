@@ -1,4 +1,8 @@
-# domohome
+# Un Mosquitto controla mi casa
+Este es un proyecto del tipo de los que nunca se acaban, Pero he querido ordenar y documentar la parte principal de este sistema de domótica para poder compartirlo con la comunidad. 
+
+Construido bajo los principios del Do It Yourselft, encontraréis todo el código Python, NodeJS y node-red utilizado. Así como las referencias al open-hardware utilizado.
+
 Domotic project. Sustainable energy management and home control based on Raspberry Pi
 
 MQTT 
