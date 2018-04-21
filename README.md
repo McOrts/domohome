@@ -1,7 +1,15 @@
 # Un Mosquitto controla mi casa
 Este es un proyecto del tipo de los que nunca se acaban, Pero he querido ordenar y documentar la parte principal de este sistema de domótica para poder compartirlo con la comunidad. 
 
-Construido bajo los principios del Do It Yourselft, encontraréis todo el código Python, NodeJS y node-red utilizado. Así como las referencias al open-hardware utilizado.
+Construido bajo los principios del Do It Yourselft, encontraréis todo el código Python, NodeJS, SQL y node-red utilizado. Así como las referencias al open-hardware utilizado: [Raspberry Pi](https://www.raspberrypi.org).
+
+## Mi implementación del IOT
+
+Para montar un sistema de domótica en casa se pueden utilizar muchas soluciones. Y en como tantas otras cosas. Hay una fácil y cara y otra dificil y barata. La mía es más bien de estas últimas.
+
+![Arquitectura domohome](https://github.com/McOrts/domohome/blob/master/images/domohome_arquitectura.jpg?raw=true)
+
+
 
 Domotic project. Sustainable energy management and home control based on Raspberry Pi
 
