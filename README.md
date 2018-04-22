@@ -1,7 +1,7 @@
 # Un Mosquitto controla mi casa
 Este es un proyecto del tipo de los que nunca se acaban, Pero he querido ordenar y documentar la parte principal de este sistema de domótica que he instalado en mi casa, para poder compartirlo con la comunidad. 
 
-Construido bajo los principios del _Do It Yourselft_, encontraréis todo el código Python, NodeJS, SQL y node-red utilizado. Así como las referencias al open-hardware utilizado: [Raspberry Pi](https://www.raspberrypi.org).
+Construido bajo los principios del _Do It Yourselft_, [aquí encontraréis todo el código](https://github.com/McOrts/domohome) Python, NodeJS, SQL y node-red utilizado. Así como las referencias al open-hardware utilizado: [Raspberry Pi](https://www.raspberrypi.org).
 
 ## Mi implementación del IOT
 
@@ -18,9 +18,7 @@ Por encima de esta gestión corre una aplicación _middleware_ que subscrita a l
 - Activar un dispositivo a través de puertos GPIO.
 - Enviar avisos a Twitter.
 - Ofrece un interface de usuario web para operar el sistema.
-
 ![Arquitectura domohome](https://github.com/McOrts/domohome/blob/master/images/domohome_arquitectura.jpg?raw=true)
-
 Lo sensores también se pueden construir incorporados en microcontroladores dedicados operando de forma autónoma. El valor entonces en enviado en un mensaje MQTT por un canal inalámbrico o físico a _broker_. En sucesivos artículos describiré otras muchas maneras de implementar sensores. 
 
 ## MQTT ¿Qué, cuándo y dónde?
@@ -33,11 +31,19 @@ Y así se diseñó este protocolo MQTT a fin de cumplir la restricción de utili
 - __Fiabilidad__ de entrega de mensajes.
 
 En 2012 Andy Stanford-Clark contó su experiencia y su visión del futuro de la IOT basado en MQTT en esta famosa conferencia TED:
+
 [![TEDxWarwick](https://github.com/McOrts/domohome/blob/master/images/TedTalk_Andy_2012.png?raw=true)](https://youtu.be/s9nrm8q5eGg)
-
-En 2011 IBM cedió el codigo a la fundacion Eclipse liberandolo a la comunidad. De manera que su popularización llevo a que en En 2104 se convirtio en un estandard certificado por la organización  para la adopcion del estándares de comercio electrónico y servicios web  OASIS 
-
+En 2011 IBM cedió el codigo a la fundacion Eclipse liberandolo a la comunidad. De manera que su popularización llevo a que en En 2014 se conviertiera en un estandard certificado por la Organización para la Adopcion del Estándas de Comercio Electrónico y Servicios Web ( [OASIS](https://www.oasis-open.org/news/announcements/mqtt-version-3-1-1-becomes-an-oasis-standard)).
+ 
 ## Manos a la obra 
+
+Lo primero, definir la estructura de los _topic_ que necesito usar. Un _topic_ al fin y al cavo es un buzón público de correo que cualquiera puede luego leer. Con la caracteristica especial de que pueden organizarse gerárquimanente. En mi caso este es el árbol:
+`-- home
+    |-- meteo
+    |   `-- solar
+    `-- storageroom
+        |-- humidity
+        `-- temperature
 
 Programación en Python
 
@@ -46,7 +52,7 @@ https://pypi.python.org/pypi/paho-mqtt
 Eclipse Paho MQTT Python client library, which implements versions 3.1 and 3.1.1 of the MQTT protocol.
 
 ## Agradecimientos y referencias
-- (MQTT.org](http://mqtt.org)
+- [MQTT.org](http://mqtt.org)
 - Una vez más a Luis del Valle de [ProgramarFacil](https://programarfacil.com) por su artículo ["Cómo conectar MQTT con ESP8266, Raspberry Pi y Mosquitto"](https://programarfacil.com/esp8266/mqtt-esp8266-raspberry-pi/)
 - R. A. Light, "Mosquitto: server and client implementation of the MQTT protocol," The Journal of Open Source Software, vol. 2, no. 13, May 2017, DOI: [10.21105/joss.00265](http://dx.doi.org/10.21105/joss.00265)
 - IBM Developers [MQTT: Enabling the Internet of Things](https://developer.ibm.com/messaging/2013/04/26/mqtt-enabling-internet-things/)
