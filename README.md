@@ -16,28 +16,28 @@ El componente principal de la arquitectura que he utilizado el un _Broker_ de me
 
 Por encima de esta gestión corre una aplicación _middleware_ que subscrita a los _topics_, toma decisiones acerca de:
 - Activar un dispositivo a través de puertos GPIO.
-- Enviar avisos a Twitter
-- Ofrece un interface de usuario web para operar el sistema
+- Enviar avisos a Twitter.
+- Ofrece un interface de usuario web para operar el sistema.
 
 ![Arquitectura domohome](https://github.com/McOrts/domohome/blob/master/images/domohome_arquitectura.jpg?raw=true)
 
+Lo sensores también se pueden construir incorporados en microcontroladores dedicados operando de forma autónoma. El valor entonces en enviado en un mensaje MQTT por un canal inalámbrico o físico a _broker_. En sucesivos artículos describiré otras muchas maneras de implementar sensores. 
 
+## MQTT ¿Qué, cuándo y dónde?
 
-Domotic project. Sustainable energy management and home control based on Raspberry Pi
+En 1999 dos ingenieros, el Dr. Andy Stanford-Clark de IBM y Arlen Nipper de Eurotech. Estaban participando en la construcción de un oleoducto con el reto de conectar online sus 4.000 sensores a un sistema centralizado de SCADA. Utilizando un enlace de satélite como única comunicación posible.
 
-MQTT 
+Y así se diseñó este protocolo MQTT a fin de cumplir la restricción de utilizar una comunicación costosa, de banda estrecha y con latencias importantes. Siendo sus caracteristicas principales:
+- __Simple y ligero__. Con menos requerimientos de proceso y ancho de banda.
+- __Tolerancia a altas latencias__. Lo que permite utilizar canales de comunicacion poco óptimos para otros protocolos.
+- __Fiabilidad__ de entrega de mensajes.
 
-Nace de la necesidad de crear un protocolo ligero y confiable para la comunicación Machine To Machine (M2M).
-El significado de sus 
-Caracteristicas:
-	•	Simple y ligero. Menos requerimientos de proceso y ancho de banda.
-	•	Tolerancia a altas latinices. Lo que permite utilizar canales de comunicacion poco óptimos para otros protocolos.
-	•	Fiabilidad de entrega de mensajes
+En 2012 Andy Stanford-Clark contó su experiencia y su visión del futuro de la IOT basado en MQTT en esta famosa conferencia TED:
+[![TEDxWarwick](https://github.com/McOrts/domohome/blob/master/images/TedTalk_Andy_2012.png?raw=true)](https://youtu.be/s9nrm8q5eGg)
 
+En 2011 IBM cedió el codigo a la fundacion Eclipse liberandolo a la comunidad. De manera que su popularización llevo a que en En 2104 se convirtio en un estandard certificado por la organización  para la adopcion del estándares de comercio electrónico y servicios web  OASIS 
 
-Creado en 1999 por Dr. Andy Stanford-Clark de IBM y Arlen Nipper de Eurotech ante la necesidad de orquestar las comunicaciones de un oleoducto. Este especial protocolo nacio por la necesidad de cumplir la restricción de utilizar una comunicaciones por satelite. De manera que en otras redes es muy optimo
-
-En 2011 IBM cedio el codigo a la fundacion Eclipse liberandolo a la comunidad. De manera que su popularización llevo a que en En 2104 se convirtio en un estandard certificado por la organización  para la adopcion del estándares de comercio electrónico y servicios web  OASIS 
+## Manos a la obra 
 
 Programación en Python
 
@@ -45,6 +45,8 @@ Buena libreria :paho-mqtt 1.3.1
 https://pypi.python.org/pypi/paho-mqtt
 Eclipse Paho MQTT Python client library, which implements versions 3.1 and 3.1.1 of the MQTT protocol.
 
-## Agradecimientos
-* Una vez más a Luis del Valle de [ProgramarFacil](https://programarfacil.com) por su artículo ["Cómo conectar MQTT con ESP8266, Raspberry Pi y Mosquitto"](https://programarfacil.com/esp8266/mqtt-esp8266-raspberry-pi/)
-* R. A. Light, "Mosquitto: server and client implementation of the MQTT protocol," The Journal of Open Source Software, vol. 2, no. 13, May 2017, DOI: [10.21105/joss.00265](http://dx.doi.org/10.21105/joss.00265)
+## Agradecimientos y referencias
+- (MQTT.org](http://mqtt.org)
+- Una vez más a Luis del Valle de [ProgramarFacil](https://programarfacil.com) por su artículo ["Cómo conectar MQTT con ESP8266, Raspberry Pi y Mosquitto"](https://programarfacil.com/esp8266/mqtt-esp8266-raspberry-pi/)
+- R. A. Light, "Mosquitto: server and client implementation of the MQTT protocol," The Journal of Open Source Software, vol. 2, no. 13, May 2017, DOI: [10.21105/joss.00265](http://dx.doi.org/10.21105/joss.00265)
+- IBM Developers [MQTT: Enabling the Internet of Things](https://developer.ibm.com/messaging/2013/04/26/mqtt-enabling-internet-things/)
