@@ -1,7 +1,7 @@
 # Un Mosquitto controla mi casa
 Este es un proyecto del tipo de los que nunca se acaban, Pero he querido ordenar y documentar la parte principal de este sistema de domótica que he instalado en mi casa, para poder compartirlo con la comunidad. 
 
-Construido bajo los principios del _Do It Yourselft_, [aquí encontraréis todo el código](https://github.com/McOrts/domohome) Python, NodeJS, SQL y node-red utilizado. Así como las referencias al open-hardware utilizado: [Raspberry Pi](https://www.raspberrypi.org).
+Construido bajo los principios del _Do It Yourselft_, [aquí encontraréis todo el código](https://github.com/McOrts/domohome) Python, NodeJS, SQL y Node-RED utilizado. Así como las referencias al open-hardware utilizado: [Raspberry Pi](https://www.raspberrypi.org).
 
 ## Mi implementación del IOT
 
@@ -9,12 +9,12 @@ Para montar un sistema de domótica en casa se pueden aplicar muchas soluciones.
 
 La instalación descrita aquí funcionalmente se ocupa de:
 - informarme y alertarme por twitter de:
-	- cuándo amanecce y anochece cada día. 
+	- cuándo amanece y anochece cada día. 
 	- cual es la temperatura y humedad del trastero.
 - Activar un deshumidificador en función de la hora del alba y del ocaso.
 - Almacenar toda la información en una base de datos relacional y en Cloud.
 
-El componente principal de la arquitectura que he utilizado el un _Broker_ de mensajería basado en _topic_. Los sensores están conectados a puertos GPIO de una mini-CPU que ejecuta un programa específivo para cada uno. Este programa realiza las siguientes tareas:
+El componente principal de la arquitectura que he utilizado el un _Broker_ de mensajería basado en _topic_. Los sensores están conectados a puertos GPIO de una mini-CPU que ejecuta un programa especifico para cada uno. Este programa realiza las siguientes tareas:
 - Lee el valor del sensor. 
 - Graba el valor en una BBDD relacional.
 - Envía el valor a:
@@ -33,7 +33,7 @@ Los sensores también se pueden construir incorporados en microcontroladores ded
 
 En 1999 dos ingenieros, el Dr. Andy Stanford-Clark de IBM y Arlen Nipper de Eurotech. Estaban participando en la construcción de un oleoducto con el reto de conectar online sus 4.000 sensores a un sistema centralizado de SCADA. Utilizando un enlace de satélite como única comunicación posible.
 
-Y así se diseñó este protocolo MQTT a fin de cumplir la restricción de utilizar una comunicación costosa, de banda estrecha y con latencias importantes. Siendo sus caracteristicas principales:
+Y así se diseñó este protocolo MQTT a fin de cumplir la restricción de utilizar una comunicación costosa, de banda estrecha y con latencias importantes. Siendo sus características principales:
 - __Simple y ligero__. Con menos requerimientos de proceso y ancho de banda.
 - __Tolerancia a altas latencias__. Lo que permite utilizar canales de comunicacion poco óptimos para otros protocolos.
 - __Fiabilidad__ de entrega de mensajes. Incorpora tres niveles de calidad del servicio (QoS):
@@ -44,7 +44,7 @@ Y así se diseñó este protocolo MQTT a fin de cumplir la restricción de utili
 En 2012 Andy Stanford-Clark contó su experiencia y su visión del futuro de la IOT basado en MQTT en esta famosa conferencia TED:
 [![TEDxWarwick](https://github.com/McOrts/domohome/blob/master/images/TedTalk_Andy_2012.png?raw=true)](https://youtu.be/s9nrm8q5eGg)
 
-En 2011 IBM cedió el codigo a la fundacion Eclipse liberandolo a la comunidad. De manera que su popularización le llevó a que en En 2014 se conviertiera en un estandard certificado por la Organización para la Adopcion del Estándas de Comercio Electrónico y Servicios Web ( [OASIS](https://www.oasis-open.org/news/announcements/mqtt-version-3-1-1-becomes-an-oasis-standard)).
+En 2011 IBM cedió el código a la fundación Eclipse liberándolo a la comunidad. De manera que su popularización le llevó a que en En 2014 se convirtiera en un estándar certificado por la Organización para la Adopción del Estándar de Comercio Electrónico y Servicios Web ( [OASIS](https://www.oasis-open.org/news/announcements/mqtt-version-3-1-1-becomes-an-oasis-standard)).
  
 ## Manos a la obra 
 
@@ -57,7 +57,7 @@ Lo primero, definir la estructura de los _topic_ que necesito usar. Un _topic_ a
         |-- humidity
         `-- temperature
 ```
-Esta estructura y la sintaxis que se utiliza la podeis ver en el contenido del fichero [config.json](https://github.com/McOrts/domohome/blob/master/config.json?raw=true)
+Esta estructura y la sintaxis que se utiliza la podéis ver en el contenido del fichero [config.json](https://github.com/McOrts/domohome/blob/master/config.json?raw=true)
 ```
 "domohome_humidity":{
     	"device_id": "xxxxxx",
@@ -82,7 +82,7 @@ La lista de materiales fundamentales es:
 El circuito es muy simple. Necesitaremos 2 entradas y 2 salidas digitales. Además utilizaremos el pin de 5V y el GND (toma de tierra) para alimentar los sensores y relés:
 ![Arquitectura breadboard](https://github.com/McOrts/domohome/blob/master/images/domohome_v1_breadboard.png?raw=true)
 
-He montado todos los componentes en una ámplia caja de plástico con sitio para poder incoporar más dispositivos:
+He montado todos los componentes en una amplia caja de plástico con sitio para poder incorporar más dispositivos:
 
 ![domohome_montaje_trastero](https://github.com/McOrts/domohome/blob/master/images/domohome_montaje_trastero.JPG?raw=true)
 
@@ -92,28 +92,28 @@ Proviene de la antigua plataforma que se llamaba SAMlio y posteriormente SmartTh
 Mi caso de uso es solo para almacenar informacion y mostrarla a través de la apliación móvil:
 ![domohome_artikcloud_app](https://github.com/McOrts/domohome/blob/master/images/domohome_artikcloud_app.PNG?raw=true)
 
-Es compatible con Amazón Echo (interfaz de voz), Fitbit (monitor de actividad), Nest (termostato de Google) y, por supuesto, con Samsung. Si quieres saber todas las plataformas que son compatibles puedes acceder a su web oficial.mUna de las mayores ventajas es que soporta IFTTT, lo que nos permite comunicación con cualquier cosa que te puedas imaginar.
+Es compatible con Amazón Echo (interfaz de voz), Fitbit (monitor de actividad), Nest (termostato de Google) y, por supuesto, con Samsung. Si quieres saber todas las plataformas que son compatibles puedes acceder a su web oficial. Una de las mayores ventajas es que soporta IFTTT, lo que nos permite comunicación con cualquier cosa que te puedas imaginar.
 
 Por otra parte tiene un plan de precios con un tramo gratuito. Está limitado a un uso que encaja perfectamente en un proyecto de este tipo.
 ![artikcloud_precios](https://github.com/McOrts/domohome/blob/master/images/tabla-precios-artik-cloud.png?raw=true)
 
 ### Software
-El **broker** elegido para Raspberry Pi es [Eclipse Mosquitto](https://mosquitto.org). Las instrucciones para su instalación las tenéis en multiples webs. 
+El **broker** elegido para Raspberry Pi es [Eclipse Mosquitto](https://mosquitto.org). Las instrucciones para su instalación las tenéis en múltiples webs. 
 ![mosquitto-text-side](https://github.com/McOrts/domohome/blob/master/images/mosquitto-text-side.png?raw=true)
 
-Por otra parte necesitamos muchas **librerías de Python** pàra que todo esto se pueda utilizar. Aconsejo paciencia para instalar y muchas veces reinstalar las más adecuadas. Para la mesanjería MQTT he utilizado [Eclipse Paho MQTT Python client library](https://pypi.python.org/pypi/paho-mqtt) es simple y que funciona muy bien.
+Por otra parte necesitamos muchas **librerías de Python** pàra que todo esto se pueda utilizar. Aconsejo paciencia para instalar y muchas veces reinstalar las más adecuadas. Para la mensajería MQTT he utilizado [Eclipse Paho MQTT Python client library](https://pypi.python.org/pypi/paho-mqtt) es simple y que funciona muy bien.
 
 En la parte del **middleware** tenemos [Node-RED](https://nodered.org). Nos permite programar todos nuestros interfaces, colas, webservices, sockets, APIs... de forma gráfica. Y además generar un interface de usuario web responsivo perfecto para dispositivos móviles. Una maravilla desarrollada por _IBM’s Emerging Technology Services team_ y ahora es parte de JS Foundation. La **base de datos** relacional es MySQL. Un clásico fácil de instalar. 
 
-He desarrollado un sencillo _dashboard_ para conocer los valores ambientales de mi trastero, poder activar dispositivos y luces y conocer los eventos y valores metereológicos:
+He desarrollado un sencillo _dashboard_ para conocer los valores ambientales de mi trastero, poder activar dispositivos y luces y conocer los eventos y valores meteorológicos:
 ![domohome_nodered_ui](https://github.com/McOrts/domohome/blob/master/images/domohome_nodered_ui.png?raw=true)
 
-Y ¿Cómo se maneja todo esto? Simplemente dibujando flujos entre ´nodos´ muy fácilmente configurables. Así, por ejemplo, tenemos un nodo para susbrivirnos a topics MQTT u otro para activar puertos QPIO de las Raspberry PI. Incluso hay para interactuar con un Alexa Echo.
+Y ¿Cómo se maneja todo esto? Simplemente dibujando flujos entre ´nodos´ muy fácilmente configurables. Así, por ejemplo, tenemos un nodo para suscribirnos a topics MQTT u otro para activar puertos QPIO de las Raspberry PI. Incluso hay para interactuar con un Alexa Echo.
 
 Este es el flujo para el control de humedad:
 ![domohome_storageroom_nodered_workflow](https://github.com/McOrts/domohome/blob/master/images/domohome_storageroom_nodered_workflow.png?raw=true)
 
-Como se puede ver tiene un node para Tweeter. Y asi quedan los tweet en el dashboard de la cuenta del dispositivo:
+Como se puede ver tiene un node para Tweeter. Y así quedan los tweet en el dashboard de la cuenta del dispositivo:
 ![domohome_twitter](https://github.com/McOrts/domohome/blob/master/images/domohome_twitter.png?raw=true)
 
 
