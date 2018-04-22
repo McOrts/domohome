@@ -19,7 +19,8 @@ Por encima de esta gestión corre una aplicación _middleware_ que subscrita a l
 - Enviar avisos a Twitter.
 - Ofrece un interface de usuario web para operar el sistema.
 ![Arquitectura domohome](https://github.com/McOrts/domohome/blob/master/images/domohome_arquitectura.jpg?raw=true)
-Lo sensores también se pueden construir incorporados en microcontroladores dedicados operando de forma autónoma. El valor entonces en enviado en un mensaje MQTT por un canal inalámbrico o físico a _broker_. En sucesivos artículos describiré otras muchas maneras de implementar sensores. 
+
+Los sensores también se pueden construir incorporados en microcontroladores dedicados operando de forma autónoma. El valor entonces en enviado en un mensaje MQTT por un canal inalámbrico o físico a _broker_. En sucesivos artículos describiré otras muchas maneras de implementar sensores. 
 
 ## MQTT ¿Qué, cuándo y dónde?
 
@@ -28,7 +29,10 @@ En 1999 dos ingenieros, el Dr. Andy Stanford-Clark de IBM y Arlen Nipper de Euro
 Y así se diseñó este protocolo MQTT a fin de cumplir la restricción de utilizar una comunicación costosa, de banda estrecha y con latencias importantes. Siendo sus caracteristicas principales:
 - __Simple y ligero__. Con menos requerimientos de proceso y ancho de banda.
 - __Tolerancia a altas latencias__. Lo que permite utilizar canales de comunicacion poco óptimos para otros protocolos.
-- __Fiabilidad__ de entrega de mensajes.
+- __Fiabilidad__ de entrega de mensajes. Incorpora tres niveles de calidad del servicio (QoS):
+	- QoS 0: como máximo una vez. Esto implica que puede que no se entregue.
+	- QoS 1: al menos una vez. Se garantiza la entrega pero puede que duplicados.
+	- QoS 2: exactamente una vez. Se garantiza que llegará una vez el mensaje.
 
 En 2012 Andy Stanford-Clark contó su experiencia y su visión del futuro de la IOT basado en MQTT en esta famosa conferencia TED:
 
@@ -38,12 +42,22 @@ En 2011 IBM cedió el codigo a la fundacion Eclipse liberandolo a la comunidad. 
 ## Manos a la obra 
 
 Lo primero, definir la estructura de los _topic_ que necesito usar. Un _topic_ al fin y al cavo es un buzón público de correo que cualquiera puede luego leer. Con la caracteristica especial de que pueden organizarse gerárquimanente. En mi caso este es el árbol:
+```
 `-- home
     |-- meteo
     |   `-- solar
     `-- storageroom
         |-- humidity
         `-- temperature
+```
+Esta estructura y la sintaxis que se utiliza la podeis ver en el contenido del fichero config.json.
+
+La lista de materiales fundamentales:
+- [x] [Raspberry Pi 3](http://amzn.eu/7BqTe0q) Raspberry Pi 3 ó 2. 
+- [x] [DHT22](http://amzn.eu/4mbH6zL) Módulo Sensor Digital Humedad y Temperatura
+- [x] [Foto relé](https://www.aliexpress.com/item/Photodiode-module-detection-relay-module-combo-light-switch-light-photo-sensors/32336123938.html?spm=2114.search0104.3.14.515a35857d96cl&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10065_10151_10344_10068_10342_10547_10343_10340_5722611_10341_10548_10698_10697_10696_5722911_5722811_10084_5722711_10083_10618_10307_10301_10303_5711211_10059_10184_308_100031_10103_441_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_32,ppcSwitch_7&algo_expid=57cc01a8-193e-436b-a32c-27b788d6b4c9-2&algo_pvid=57cc01a8-193e-436b-a32c-27b788d6b4c9&priceBeautifyAB=0) Cédula fotoeléctrica con relé.
+- [x] [1PCS 2-channel ](https://www.aliexpress.com/item/2-channel-New-2-channel-relay-module-relay-expansion-board-5V-low-level-triggered-2-way/32713335353.html?spm=2114.search0104.3.15.51e14447CtkJO7&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10065_10151_10344_10068_10342_10547_10343_10340_5722611_10341_10548_10698_10697_10696_5722911_5722811_10084_5722711_10083_10618_10307_10301_10303_5711211_10059_10184_308_100031_10103_441_10624_10623_10622_10621_10620_5711311_5722511-10620,searchweb201603_32,ppcSwitch_7&algo_expid=64447ff7-30cf-426d-a35e-27cfc1e18d9c-2&algo_pvid=64447ff7-30cf-426d-a35e-27cfc1e18d9c&priceBeautifyAB=0) Doble relé con alimentación de 5V.x
+
 
 Programación en Python
 
