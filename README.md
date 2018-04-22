@@ -48,7 +48,7 @@ En 2011 IBM cedió el codigo a la fundacion Eclipse liberandolo a la comunidad. 
  
 ## Manos a la obra 
 
-Lo primero, definir la estructura de los _topic_ que necesito usar. Un _topic_ al fin y al cavo es un buzón público de correo que cualquiera puede luego leer. Con la caracteristica especial de que pueden organizarse gerárquimanente. En mi caso este es el árbol:
+Lo primero, definir la estructura de los _topic_ que necesito usar. Un _topic_ al fin y al cavo, es un buzón público de correo que cualquiera puede leer. Con la caracteristica especial de que pueden organizarse gerárquimanente. En mi caso este es el árbol:
 ```
 `-- home
     |-- meteo
@@ -67,6 +67,7 @@ Esta estructura y la sintaxis que se utiliza la podeis ver en el contenido del f
 	"max_warning": 70,
 	"topic_humidity":"/home/storageroom/humidity",
 	"topic_temperature":"/home/storageroom/temperature"
+	},
 ```
 ### Hardware 
 El proyecto está basado en el más clásico de las mini-CPUs. La Raspberry Pi. En mi caso he utilizado dos. Un modelo 2 para alojar el MySQL y el sensor solar y otro modelo 3 para alojar Mosquitto y el sensor de humedad y temperatura.
