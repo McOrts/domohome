@@ -52,6 +52,8 @@ Lo primero, definir la estructura de los _topic_ que necesito usar. Un _topic_ a
 ```
 Esta estructura y la sintaxis que se utiliza la podeis ver en el contenido del fichero config.json.
 
+### Hardware 
+
 La lista de materiales fundamentales:
 - [x] [Raspberry Pi 3](http://amzn.eu/7BqTe0q) Raspberry Pi 3 ó 2. 
 - [x] [DHT22](http://amzn.eu/4mbH6zL) Módulo Sensor Digital Humedad y Temperatura
@@ -59,6 +61,17 @@ La lista de materiales fundamentales:
 - [x] [1PCS 2-channel ](https://www.aliexpress.com/item/2-channel-New-2-channel-relay-module-relay-expansion-board-5V-low-level-triggered-2-way/32713335353.html?spm=2114.search0104.3.15.51e14447CtkJO7&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10065_10151_10344_10068_10342_10547_10343_10340_5722611_10341_10548_10698_10697_10696_5722911_5722811_10084_5722711_10083_10618_10307_10301_10303_5711211_10059_10184_308_100031_10103_441_10624_10623_10622_10621_10620_5711311_5722511-10620,searchweb201603_32,ppcSwitch_7&algo_expid=64447ff7-30cf-426d-a35e-27cfc1e18d9c-2&algo_pvid=64447ff7-30cf-426d-a35e-27cfc1e18d9c&priceBeautifyAB=0) Doble relé con alimentación de 5V.x
 
 
+El circuito es muy simple. Necesitaremos 2 entradas y 2 salidas digitales. Además utilizaremos el pin de 5V y el GND (toma de tierra) para alimentar los sensores y relés:
+
+![Arquitectura breadboard](https://github.com/McOrts/domohome/blob/master/images/domohome_v1_breadboard.png?raw=true)
+
+### Software
+
+El broker elegido para Raspberry Pi es [Eclipse Mosquitto](https://mosquitto.org). Las instrucciones para su instalación las tenéis en multiples webs. La base de datos relacional es MySQL. Un clásico fácil de instalar. 
+
+Aconsejo paciencia para instalar las librerias Python 
+
+Para no alargar el artículo. No entraré en los detalles de  
 Programación en Python
 
 Buena libreria :paho-mqtt 1.3.1
