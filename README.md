@@ -44,7 +44,7 @@ Y así se diseñó este protocolo MQTT a fin de cumplir la restricción de utili
 En 2012 Andy Stanford-Clark contó su experiencia y su visión del futuro de la IOT basado en MQTT en esta famosa conferencia TED:
 [![TEDxWarwick](https://github.com/McOrts/domohome/blob/master/images/TedTalk_Andy_2012.png?raw=true)](https://youtu.be/s9nrm8q5eGg)
 
-En 2011 IBM cedió el codigo a la fundacion Eclipse liberandolo a la comunidad. De manera que su popularización llevo a que en En 2014 se conviertiera en un estandard certificado por la Organización para la Adopcion del Estándas de Comercio Electrónico y Servicios Web ( [OASIS](https://www.oasis-open.org/news/announcements/mqtt-version-3-1-1-becomes-an-oasis-standard)).
+En 2011 IBM cedió el codigo a la fundacion Eclipse liberandolo a la comunidad. De manera que su popularización le llevó a que en En 2014 se conviertiera en un estandard certificado por la Organización para la Adopcion del Estándas de Comercio Electrónico y Servicios Web ( [OASIS](https://www.oasis-open.org/news/announcements/mqtt-version-3-1-1-becomes-an-oasis-standard)).
  
 ## Manos a la obra 
 
@@ -97,16 +97,24 @@ Por otra parte tiene un plan de precios con un tramo gratuito. Está limitado a 
 ![artikcloud_precios](https://github.com/McOrts/domohome/blob/master/images/tabla-precios-artik-cloud.png?raw=true)
 
 ### Software
-El broker elegido para Raspberry Pi es [Eclipse Mosquitto](https://mosquitto.org). Las instrucciones para su instalación las tenéis en multiples webs. La base de datos relacional es MySQL. Un clásico fácil de instalar. 
+El **broker** elegido para Raspberry Pi es [Eclipse Mosquitto](https://mosquitto.org). Las instrucciones para su instalación las tenéis en multiples webs. 
+![mosquitto-text-side](https://github.com/McOrts/domohome/blob/master/images/mosquitto-text-side.png?raw=true)
 
-Por otra parte necesitamos muchas librerias de Python pàra que todo esto se pueda utilizar. Aconsejo paciencia para instalar y muchas veces reinstalar las más adecuadas. Para la mesanjería MQTT he utilizado [Eclipse Paho MQTT Python client library](https://pypi.python.org/pypi/paho-mqtt) es simple y que funciona muy bien.
+Por otra parte necesitamos muchas **librerías de Python** pàra que todo esto se pueda utilizar. Aconsejo paciencia para instalar y muchas veces reinstalar las más adecuadas. Para la mesanjería MQTT he utilizado [Eclipse Paho MQTT Python client library](https://pypi.python.org/pypi/paho-mqtt) es simple y que funciona muy bien.
 
-En la parte del _middleware_ tenemos [Node-RED](https://nodered.org). Nos permite programar todos nuestros interfaces, colas, webservices, sockets, APIs... de forma gráfica. Y además generar un interface de usuario web responsivo perfecto para dispositivos móviles. Una maravilla desarrollada por _IBM’s Emerging Technology Services team_ y ahora es parte de JS Foundation.
+En la parte del **middleware** tenemos [Node-RED](https://nodered.org). Nos permite programar todos nuestros interfaces, colas, webservices, sockets, APIs... de forma gráfica. Y además generar un interface de usuario web responsivo perfecto para dispositivos móviles. Una maravilla desarrollada por _IBM’s Emerging Technology Services team_ y ahora es parte de JS Foundation. La **base de datos** relacional es MySQL. Un clásico fácil de instalar. 
 
 He desarrollado un sencillo _dashboard_ para conocer los valores ambientales de mi trastero, poder activar dispositivos y luces y conocer los eventos y valores metereológicos:
 ![domohome_nodered_ui](https://github.com/McOrts/domohome/blob/master/images/domohome_nodered_ui.png?raw=true)
 
-Y ¿Cómo se maneja todo esto? Simplemente dibujando flujos entre ´nodos´ muy fácilmente configurables. Así, por ejemplo, tenemos un nodo para susbrivirnos a topics MQTT u otro para activar puertos QPIO de las Raspberry PI. Incluso hay para interactuar con un Alexo Echo.
+Y ¿Cómo se maneja todo esto? Simplemente dibujando flujos entre ´nodos´ muy fácilmente configurables. Así, por ejemplo, tenemos un nodo para susbrivirnos a topics MQTT u otro para activar puertos QPIO de las Raspberry PI. Incluso hay para interactuar con un Alexa Echo.
+
+Este es el flujo para el control de humedad:
+![domohome_storageroom_nodered_workflow](https://github.com/McOrts/domohome/blob/master/images/domohome_storageroom_nodered_workflow.png?raw=true)
+
+Como se puede ver tiene un node para Tweeter. Y asi quedan los tweet en el dashboard de la cuenta del dispositivo:
+![domohome_twitter](https://github.com/McOrts/domohome/blob/master/images/domohome_twitter.png?raw=true)
+
 
 ## Agradecimientos y referencias
 - [MQTT.org](http://mqtt.org)
