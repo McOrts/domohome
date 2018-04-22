@@ -1,5 +1,5 @@
 # Un Mosquitto controla mi casa
-Este es un proyecto del tipo de los que nunca se acaban, Pero he querido ordenar y documentar la parte principal de este sistema de domótica para poder compartirlo con la comunidad. 
+Este es un proyecto del tipo de los que nunca se acaban, Pero he querido ordenar y documentar la parte principal de este sistema de domótica que he instalado en mi casa, para poder compartirlo con la comunidad. 
 
 Construido bajo los principios del _Do It Yourselft_, encontraréis todo el código Python, NodeJS, SQL y node-red utilizado. Así como las referencias al open-hardware utilizado: [Raspberry Pi](https://www.raspberrypi.org).
 
