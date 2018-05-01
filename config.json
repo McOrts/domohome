@@ -20,6 +20,12 @@
         "gpio_pin": "5",
         "topic":"/home/meteo/solar"
         },
+"domohome_door":{
+        "device_id": "",
+        "device_token": "",
+        "gpio_pin": 18,
+        "topic":"/home/door"
+        },
 "MQTT":{
 	"broker_server_ip":"192.168.1.",
 	"qos":2
