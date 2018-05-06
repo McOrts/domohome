@@ -3,6 +3,7 @@ import time
 import MySQLdb as mdb
 import logging
 import fnmatch
+import json
 
 def find_network_nodes(nodes_found):
 	# Then the code sets up the logging module. We are going to use the basicConfig() function to set up the default handler 
@@ -15,7 +16,7 @@ def find_network_nodes(nodes_found):
 	# Read the configuration file
 	DEFAULT_CONFIG_PATH = '/home/pi/config.json'
 	with open(DEFAULT_CONFIG_PATH, 'r') as config_file:
-  	config = json.load(config_file)
+  	  config = json.load(config_file)
 
   	# obtain the list of MacAddress of the devices connected to the LAN
 	os.system('sudo nmap -sP 192.168.1.* > nmap_results.txt')

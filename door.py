@@ -95,11 +95,11 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(config['domohome_door']['gpio_pin'], GPIO.IN)
 count = 0
 while True:
-  inputValue = GPIO.input(18)
+  inputValue = GPIO.input(config['domohome_door']['gpio_pin'])
   if (inputValue == True):
-    print("Door open")
+#    print("Door open")
     whois = find_network_nodes(" ")
-    print(whois)
+#    print(whois)
     if (whois == " "):
       whois = " NOBODY"
       send_email_open_door(whois)
