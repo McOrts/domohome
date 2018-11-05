@@ -69,7 +69,7 @@ def send_email_humidity(p_cc, p_humidity, p_temperature):
     if p_cc:
       # cc version
       message = "From: %s\r\n" % fromaddr + "To: %s\r\n" % toaddr + "CC: %s\r\n" % ",".join(cc) + "Subject: %s\r\n" % message_subject + "\r\n"  + message_text
-      toaddrs = [toaddr] + cc 
+      toaddrs = [toaddr] + [cc] 
     else:
       message = "From: %s\r\n" % fromaddr + "To: %s\r\n" % toaddr + "Subject: %s\r\n" % message_subject + "\r\n"  + message_text
       toaddrs = [toaddr]
@@ -94,7 +94,7 @@ def send_data_IOT_cloud(p_humidity, p_temperature):
     # Configure Oauth2 access_token for the client application.  Here we have used
     # the device token for the configuration
     artikcloud.configuration = artikcloud.Configuration();
-    artikcloud.configuration.access_token = config['domohome_humidity']['device_token']
+    artikcloud.configuration.access_token = config['domohome_storageroom_humidity']['device_token']
 
     # We create an instance of the Message API class which provides
     # the send_message() and get_last_normalized_messages() api call
@@ -107,7 +107,7 @@ def send_data_IOT_cloud(p_humidity, p_temperature):
     device_message['temp']=round(p_temperature, 1)
 
     # Set the 'device id' - value from your config.json file
-    device_sdid = config['domohome_humidity']['device_id']
+    device_sdid = config['domohome_storageroom_humidity']['device_id']
 
     # set your custom timestamp
     ts = None
@@ -131,14 +131,14 @@ def publish_MQTT_messages (p_humidity, p_temperature):
   try:
     client = mqtt.Client()
     # compose the message of humidity
-    topic = config['domohome_humidity']['topic_humidity']
+    topic = config['domohome_storageroom_humidity']['topic_humidity']
     payload = '{:3.2f}'.format(p_humidity / 1.)
 #    print ("Publishing " + payload + " to topic: " + topic + " ...")
     client.connect(config['MQTT']['broker_server_ip'],1883,60)
     client.publish (topic, payload)
 
     # compose the message of temperature
-    topic = config['domohome_humidity']['topic_temperature']
+    topic = config['domohome_storageroom_humidity']['topic_temperature']
     payload = '{:3.2f}'.format(p_temperature / 1.)
 #    print "Publishing " + payload + " to topic: " + topic + " ..."
     client.connect(config['MQTT']['broker_server_ip'],1883,60)
@@ -156,7 +156,7 @@ while True:
     config = json.load(config_file)
 
   # Read the measurements
-  humidity,temperature = dht.read_retry(dht.DHT22, config['domohome_humidity']['gpio_pin'])
+  humidity,temperature = dht.read_retry(dht.DHT22, config['domohome_storageroom_humidity']['gpio_pin'])
 #  print('{:3.2f}'.format(humidity / 1.))
 #  print('{:3.2f}'.format(temperature / 1.))
 
@@ -164,7 +164,7 @@ while True:
   insertDB (humidity,temperature)
 
   # Send an warning email if the humidity reach at maximum
-  if humidity > config['domohome_humidity']['max_warning']:
+  if humidity > config['domohome_storageroom_humidity']['max_warning']:
     send_email_humidity(True,humidity,temperature)
 
   # send the data to de IOT Cloud

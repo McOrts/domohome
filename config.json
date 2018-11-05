@@ -6,7 +6,7 @@
 	"username": "",
 	"password": ""
 	},
-"domohome_humidity":{
+"domohome_storageroom_humidity":{
     "device_id": "",
     "device_token": "",
 	"gpio_pin": "4",
@@ -14,18 +14,33 @@
 	"topic_humidity":"/home/storageroom/humidity",
 	"topic_temperature":"/home/storageroom/temperature"
 	},
+"domohome_livingroom_humidity":{
+    "device_id": "",
+    "device_token": "",
+	"gpio_pin": "4",
+	"max_warning": 70,
+	"topic_humidity":"/home/livingroom/humidity",
+	"topic_temperature":"/home/livingroom/temperature"
+	},
 "domohome_solar":{
     "device_id": "",
     "device_token": "",
-        "gpio_pin": "5",
-        "topic":"/home/meteo/solar"
-        },
+    "gpio_pin": "5",
+    "topic":"/home/meteo/solar"
+    },
 "domohome_door":{
-        "device_id": "",
-        "device_token": "",
-        "gpio_pin": 18,
-        "topic":"/home/door"
-        },
+    "device_id": "",
+    "device_token": "",
+    "gpio_pin": 18,
+    "topic":"/home/door"
+    },
+"domohome_wind":{
+	"device_id": "",
+	"device_token": "",
+	"gpio_pin": "23",
+	"max_warning": 40,
+	"topic":"/home/meteo/wind"
+	},
 "MQTT":{
 	"broker_server_ip":"192.168.1.",
 	"qos":2
